@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("How many wheels will your vehicle have?");
+            if (!int.TryParse(Console.ReadLine(), out int wheelsInput))
+            {
+                Console.WriteLine("Invalid Input");
+                return;
+            }
+            
+            IVehicle userCar = VehicleFactory.GetVehicle(wheelsInput);
+            userCar.Drive();
         }
     }
 }
